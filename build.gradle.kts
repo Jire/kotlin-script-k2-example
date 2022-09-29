@@ -2,28 +2,20 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.7.20"
-    application
 }
 
-group = "org.jire"
-version = "1.0-SNAPSHOT"
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 
-repositories {
-    mavenCentral()
-}
+    group = "org.jire"
+    version = "1.0-SNAPSHOT"
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
-application {
-    mainClass.set("MainKt")
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            useK2 = true // change to false, and you'll see the classes generate fine
+        }
+    }
 }

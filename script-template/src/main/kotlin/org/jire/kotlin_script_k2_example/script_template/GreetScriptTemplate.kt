@@ -1,4 +1,4 @@
-package org.jire.kotlin_script_k2_example
+package org.jire.kotlin_script_k2_example.script_template
 
 import kotlin.script.experimental.annotations.KotlinScript
 import kotlin.script.experimental.api.ScriptCompilationConfiguration
